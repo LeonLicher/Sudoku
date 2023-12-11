@@ -4,10 +4,11 @@
   "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
   "main": "solver.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon main.js"
   },
   "keywords": [],
   "type": "module",
   "author": "",
-  "license": "ISC"
+  "license": "ISC" 
 }
