@@ -1,19 +1,10 @@
 import { solveSudoku } from "./solver.js";
 import http from 'node:http';
+import { generateSudoku } from "./generateSudoku.js";
 
 
-
-const sudokuBoard = [
-  [5, 3, 0, 0, 7, 0, 0, 0, 0],
-  [6, 0, 0, 1, 9, 5, 0, 0, 0],
-  [0, 9, 8, 0, 0, 0, 0, 6, 0],
-  [8, 0, 0, 0, 6, 0, 0, 0, 3],
-  [4, 0, 0, 8, 0, 3, 0, 0, 1],
-  [7, 0, 0, 0, 2, 0, 0, 0, 6],
-  [0, 6, 0, 0, 0, 0, 2, 8, 0],
-  [0, 0, 0, 4, 1, 9, 0, 0, 5],
-  [0, 0, 0, 0, 8, 0, 0, 7, 9],
-];
+const sudokuBoard = generateSudoku(81)
+console.log(sudokuBoard)
 const rawString = sudokuBoard.map(row => row.map(num => `<td>${num}</td>`).join('')).map(row => `<tr>${row}</tr>`).join('');
 
 
@@ -26,6 +17,13 @@ const htmlResponse = `
   <html>
     <head>
       <style>
+      * {
+        margin-bottom: 20px;
+      }
+
+      #difficulty {
+        display: block;
+      }
         table {
           border-collapse: collapse;
         }
@@ -38,32 +36,54 @@ const htmlResponse = `
       </style>
     </head>
     <body>
+      <h1>Leon baut sein JS</h1>
+
+      <label for="difficulty">Select a Difficulty (Number of empty fields to figure out!)</label>
+      <select id="difficulty" display="block">
+        <option value="easy">easy</option>
+        <option value="mid">mid</option>
+        <option value="hard">hard</option>
+      </select>
+
       <table>${rawString}</table>
-      <p><p>
-      <button onclick="displaySolution()">Show Solution</button>
-      <p><p>
+       
+      <button onclick="displaySolution()">Toggle Solution</button>
+       
 
       <table id="solutionTable" style="display: none;">${solString}</table>
-      <script>
-      function displaySolution() {
-        const solutionTable = document.getElementById('solutionTable');
-        if(solutionTable.style.display ==="none"){
-        solutionTable.style.display = 'table'; // Show the solution table
-        } else {
-          solutionTable.style.display = "none" // unshow 
+        
+        <script>
+        function generateSudoku() {
+          const sudokuBoard = document.getElementById('solutionTable');
+          if (solutionTable.style.display === "none") {
+            solutionTable.style.display = 'table'; // Show the solution table
+          } else {
+            solutionTable.style.display = "none"; // Hide the solution table
+          }
         }
-      }
-    </script>
-      
+
+
+
+        function displaySolution() {
+          const solutionTable = document.getElementById('solutionTable');
+          if (solutionTable.style.display === "none") {
+            solutionTable.style.display = 'table'; // Show the solution table
+          } else {
+            solutionTable.style.display = "none"; // Hide the solution table
+          }
+        }
+        </script>
+
     </body>
   </html>
 `;
 
-const port = 3000;
+
+const port = 8080;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
+
   res.end(htmlResponse);
 });
 
