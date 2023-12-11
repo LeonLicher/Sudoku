@@ -1,4 +1,4 @@
-Eigene Website von Leon. Man kann (in 3 Schwierigkeitsstufen [noch nicht ganz!]) Sudoku generieren, lösen lassen, per Buttonclick die Anzeige der Lösung toggeln.
+# Eigene Website von Leon. Man kann (in 3 Schwierigkeitsstufen [noch nicht ganz!]) Sudoku generieren, lösen lassen, per Buttonclick die Anzeige der Lösung toggeln.
 
 
 
@@ -42,7 +42,7 @@ Eigene Website von Leon. Man kann (in 3 Schwierigkeitsstufen [noch nicht ganz!])
 
 
 
-# Sudoku
+## Sudoku
 
 
 
