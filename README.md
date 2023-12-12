@@ -1,8 +1,8 @@
 # Eigene Website von Leon. Man kann in 3 Schwierigkeitsstufen die Anzahl an Nullen die im Sudoku dynamisch generiert werden bestimmen, das Sudoku lösen lassen.
 
 
-#TODO: Formatting of the  Buttons
-#TODO: maybe in the future possibility to put solve the sudoku in UI with checking 
+# TODO: Formatting of the  Buttons
+# TODO: maybe in the future possibility to put solve the sudoku in UI with checking 
 
 ## Sudoku
 
