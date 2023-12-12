@@ -39,7 +39,7 @@ const htmlResponse = `
     <body>
       <h1>Leon baut sein JS</h1>
 
-      <label for="difficulty">Select a Difficulty (Number of empty fields to figure out!)</label>
+      <label for="difficulty">Select a Difficulty (Number of empty fields you still have to figure out!)</label>
       <select id="difficulty" display="block">
         <option value="easy">easy</option>
         <option value="mid">mid</option>
