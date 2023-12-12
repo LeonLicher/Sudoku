@@ -1,9 +1,10 @@
 import { solveSudoku } from "./solver.js";
 import http from 'node:http';
 import { generateSudoku } from "./generateSudoku.js";
+import express from "express"
 
 
-const sudokuBoard = generateSudoku(81)
+const sudokuBoard = generateSudoku(50)
 console.log(sudokuBoard)
 const rawString = sudokuBoard.map(row => row.map(num => `<td>${num}</td>`).join('')).map(row => `<tr>${row}</tr>`).join('');
 
@@ -78,16 +79,25 @@ const htmlResponse = `
   </html>
 `;
 
+const router = express.Router();
 
 const port = 8080;
+let app = express()
 
-const server = http.createServer((req, res) => {
+app.get("/",(req, res) => {
+  app.use('/solution', router);
   res.statusCode = 200;
 
   res.end(htmlResponse);
 });
+router.get("/solution", (req, res) => {
 
-server.listen(port, () => {
+  res.end(solString)
+})
+
+app.use(router)
+
+app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
 
