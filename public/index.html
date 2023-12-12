@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Leon macht Sudokus</h1>
+
+    <label for="difficultySelector">Select a Difficulty:</label>
+    <select id="difficultySelector">
+        <option value="easy">easy 20 empty cells</option>
+        <option value="mid">mid 40 empty cells</option>
+        <option value="hard">hard 55 empty cells</option>
+    </select>
+    
+    <button id="generateButton">Generate new Sudoku</button>
+
+    <table id="noSolutionBoard"></table>
+
+    <br>
+    <button id="toggleButton" onclick="solveTable('noSolutionBoard')">Show Solution</button>
+
+    <table id="solutionTable"></table>
+
+    <script type="module" src="./scripts.js"></script>
+    <script defer type="module" src="./generateSudoku.js"></script>
+    <script defer type="module" src="./solver.js"></script>
+
+    <script type="module">
+        // Import necessary functions from modules
+        import { GetNumberofZeroes } from "./scripts.js";
+        import { solveSudoku } from "./solver.js";
+        import { generateSudoku } from "./generateSudoku.js";
+
+        let sudokuBoard;
+
+        function updateTable(tableId) {
+            let table = document.getElementById(tableId);
+            let numberOfZeros = GetNumberofZeroes();
+
+            sudokuBoard = generateSudoku(numberOfZeros);
+            const rawString = sudokuBoard
+                .map((row) => row.map((num) => `<td>${num}</td>`).join(""))
+                .map((row) => `<tr>${row}</tr>`)
+                .join("");
+
+            table.innerHTML = rawString;
+            console.log("Number of cells to figure out: " + numberOfZeros + ".");
+        }
+
+        function solveTable(tableId) {
+            let table = document.getElementById(tableId);
+
+            sudokuBoard = solveSudoku(sudokuBoard);
+            const rawString = sudokuBoard
+                .map((row) => row.map((num) => `<td>${num}</td>`).join(""))
+                .map((row) => `<tr>${row}</tr>`)
+                .join("");
+
+            table.innerHTML = rawString;
+           
+        }
+
+        // Assign the function to the button click event after the function is defined
+        document.getElementById("generateButton").onclick = function () {
+            updateTable("noSolutionBoard");
+        };
+        document.getElementById("toggleButton").onclick = function () {
+            solveTable("noSolutionBoard");
+        };
+    </script>
+</body>
+</html>

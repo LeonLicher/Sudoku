@@ -1,0 +1,24 @@
+* {
+    margin-bottom: 20px;
+}
+button {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+#difficultySelector {
+    display: block;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 5px;
+}
+
+td {
+    border: 1px solid black;
+    width: 30px; /* Adjust the width as needed */
+    height: 30px; /* Adjust the height as needed */
+    text-align: center;
+
+}
