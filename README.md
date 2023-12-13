@@ -37,14 +37,8 @@ Dieses Projekt ist eine webbasierte Sudoku-Anwendung, die es Benutzern ermöglic
 4. Klicke auf den Button "Auswerten", um die Richtigkeit deiner Lösung zu überprüfen.
 5. Optional: Klicke auf den Button "Lösung generieren", um die vollständige Lösung anzuzeigen.
 
-## Mitarbeit
-
-Beiträge sind willkommen! Wenn du Ideen für Verbesserungen oder Fehlerbehebungen hast, reiche bitte ein Issue oder einen Pull-Request ein.
-
 ## Lizenz
 
 Dieses Projekt ist unter der [MIT-Lizenz](LICENSE) lizenziert.
 
----
-
-Fühle dich frei, dieses README an dein Projekt anzupassen oder zusätzliche Informationen hinzuzufügen.
+-
