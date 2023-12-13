@@ -1,5 +1,6 @@
-* {
-    margin-bottom: 20px;
+#difficultySelector {
+margin-top: 3px;
+margin-bottom: 10px;
 }
 button {
     margin-top: 0px;
@@ -20,5 +21,42 @@ td {
     width: 30px; /* Adjust the width as needed */
     height: 30px; /* Adjust the height as needed */
     text-align: center;
+}
+tr:first-of-type td{
+    border-top-width: 2px;
+}
+tr td:first-child {
+    border-left-width: 2px;
+}
+/* Apply thicker borders for every third column */
+td:nth-child(3n) {
+    border-right-width: 2px;
+}
 
+/* Apply thicker borders for every third row */
+tr:nth-child(3n) td {
+    border-bottom-width: 2px;
+}
+tr:first-child {
+    border-bottom-width: 2px;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    /* Standard syntax */
+    /* appearance: none; */
+    /* Vendor prefixes for other browsers */
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    /* appearance: none; */
+    text-align: center;
 }

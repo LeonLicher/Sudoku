@@ -41,12 +41,16 @@
             let numberOfZeros = GetNumberofZeroes();
 
             sudokuBoard = generateSudoku(numberOfZeros);
-            const rawString = sudokuBoard
-                .map((row) => row.map((num) => `<td>${num}</td>`).join(""))
-                .map((row) => `<tr>${row}</tr>`)
-                .join("");
+            let rawString = sudokuBoard
+            .map((row) => row.map((num) => `<td>${num}</td>`).join(""))
+            .map((row) => `<tr>${row}</tr>`)
+            .join("");
 
-            table.innerHTML = rawString;
+console.log(rawString);
+
+let str = rawString.replace(/<td>0<\/td>/g, '<td><input type="number" max="9" min"1" value=""></td>');
+table.innerHTML = str;
+
             console.log("Number of cells to figure out: " + numberOfZeros + ".");
         }
 
@@ -54,11 +58,11 @@
             let table = document.getElementById(tableId);
 
             sudokuBoard = solveSudoku(sudokuBoard);
-            const rawString = sudokuBoard
+            let rawString = sudokuBoard
                 .map((row) => row.map((num) => `<td>${num}</td>`).join(""))
                 .map((row) => `<tr>${row}</tr>`)
                 .join("");
-
+            
             table.innerHTML = rawString;
            
         }
