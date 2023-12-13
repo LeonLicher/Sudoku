@@ -23,8 +23,8 @@ Dieses Projekt ist eine webbasierte Sudoku-Anwendung, die es Benutzern ermöglic
 
 ## Erste Schritte
 
-1. **Klone das Repository**: `git clone https://github.com/dein-benutzername/sudoku-solver-generator.git`
-2. **Navigiere zum Projektverzeichnis**: `cd sudoku-solver-generator`
+1. **Klone das Repository**: `git clone https://github.com/LeonLicher/Sudoku.git`
+2. **Navigiere zum Projektverzeichnis**: `cd Sudoku`
 3. **Installiere Abhängigkeiten**: `npm install`
 4. **Starte die Anwendung**: `npm start`
 5. **Öffne deinen Browser**: Gehe zu `http://localhost:8080`, um auf die Sudoku-Anwendung zuzugreifen.
