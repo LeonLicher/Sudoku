@@ -22,7 +22,7 @@
     <table id="noSolutionBoard"></table>
     
 
-    <button id="Auswerten">Auswerten</button>
+    <button id="Auswerten">Evaluate</button>
     <br>
     <button id="toggleButton" onclick="solveTable('noSolutionBoard')">Generate Solution</button>
 
@@ -41,35 +41,39 @@
         let sudokuBoard;
 
         function collectUserInputs() {
-        let userInputArray = sudokuBoard.map((row, rowIndex) => {
-            return row.map((num, colIndex) => {
-                let inputField = document.getElementById(`cell_${rowIndex}_${colIndex}`);
-                return inputField ? (inputField.value !== '' ? parseInt(inputField.value, 10) : num) : num;
-            });
+    let userInputArray = sudokuBoard.map((row, rowIndex) => {
+        return row.map((num, colIndex) => {
+            let inputField = document.getElementById(`cell_${rowIndex}_${colIndex}`);
+            return inputField ? (inputField.value !== '' ? parseInt(inputField.value, 10) : num) : num;
         });
+    });
 
-        console.log("User Input Array:", userInputArray);
-        const table = document.querySelector('table');
-        const element = document.querySelector('input');
-        if(isValid(userInputArray)){
-            table.style.backgroundColor = 'green';
-            element.style.backgroundColor = "green";
-        } else {
-            table.style.backgroundColor = "red";
-            element.style.backgroundColor = "red";
-        }
-        setTimeout(() => {
-            table.style.backgroundColor = "white"; // Set to original or your desired color
-                try {
-                    const element = document.getElementsByName('input');
-                    element.style.backgroundColor = "white";
-                } catch (TypeError) {
-                    console.log("caught not able to read input Error")
-                }
-            }, 600);
-        }
-        
+    updateValidation(userInputArray)
+}
+    
+    
+function updateValidation(userInputArray) {
+    const table = document.getElementById('noSolutionBoard');
 
+    if (isValid(userInputArray)) {
+        setColors('green');
+    } else {
+        setColors('red');
+    }
+
+    setTimeout(() => {
+        resetColors();
+    }, 600);
+
+    function setColors(color) {
+        console.log("setColor called");
+        table.style.backgroundColor = color;
+    }
+
+    function resetColors() {
+        table.style.backgroundColor = 'white';
+    }
+}
 
         function updateTable(tableId) {
             let table = document.getElementById(tableId);
