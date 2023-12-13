@@ -61,6 +61,7 @@
         setTimeout(() => {
             table.style.backgroundColor = "white"; // Set to original or your desired color
                 try {
+                    const element = document.getElementsByName('input');
                     element.style.backgroundColor = "white";
                 } catch (TypeError) {
                     console.log("caught not able to read input Error")
