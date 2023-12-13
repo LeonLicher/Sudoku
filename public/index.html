@@ -20,7 +20,7 @@
     <table id="noSolutionBoard"></table>
 
     <br>
-    <button id="toggleButton" onclick="solveTable('noSolutionBoard')">Show Solution</button>
+    <button id="toggleButton" onclick="solveTable('noSolutionBoard')">Generate Solution</button>
 
     <table id="solutionTable"></table>
 
@@ -68,8 +68,8 @@
             updateTable("noSolutionBoard");
         };
         document.getElementById("toggleButton").onclick = function () {
-            solveTable("noSolutionBoard");
-        };
+        solveTable("noSolutionBoard");
+        }
     </script>
 </body>
 </html>
