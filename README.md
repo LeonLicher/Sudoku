@@ -41,4 +41,4 @@ Dieses Projekt ist eine webbasierte Sudoku-Anwendung, die es Benutzern ermöglic
 
 Dieses Projekt ist unter der [MIT-Lizenz](LICENSE) lizenziert.
 
--
+

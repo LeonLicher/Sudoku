@@ -14,9 +14,10 @@
         <option value="easy">easy (20 empty cells)</option>
         <option value="mid">mid (40 empty cells)</option>
         <option value="hard">hard (55 empty cells)</option>
+        <option value="Arto Inkala">Härtestes Sudoku der Welt "Arto Inkala"</option>
 
     </select>
-    
+    <p>On average, for a Sudoku expert with significant experience and proficiency in advanced solving techniques, solving a puzzle like the world's hardest Sudoku might take anywhere from 2 to 6 hours. Keep in mind that this is a rough estimate, and the actual time can vary based on the solver's familiarity with the puzzle's specific patterns and the techniques required to progress through it.</p>
     <button id="generateButton">Generate new Sudoku</button>
 
     <table id="noSolutionBoard"></table>
@@ -78,8 +79,21 @@ function updateValidation(userInputArray) {
         function updateTable(tableId) {
             let table = document.getElementById(tableId);
             let numberOfZeros = GetNumberofZeroes();
-
+            if(numberOfZeros!== "Arto Inkala"){
             sudokuBoard = generateSudoku(numberOfZeros);
+            } else { 
+            sudokuBoard =  [
+                [8, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3, 6, 0, 0, 0, 0, 0],
+                [0, 7, 0, 0, 9, 0, 2, 0, 0],
+                [0, 5, 0, 0, 0, 7, 0, 0, 0],
+                [0, 0, 0, 0, 4, 5, 7, 0, 0],
+                [0, 0, 0, 1, 0, 0, 0, 3, 0],
+                [0, 0, 1, 0, 0, 0, 0, 6, 8],
+                [0, 0, 8, 5, 0, 0, 0, 1, 0],
+                [9, 0, 0, 0, 0, 0, 4, 0, 0]
+                ];
+            }
             let rawString = sudokuBoard
         .map((row, rowIndex) => row.map((num, colIndex) => `<td>${num === 0 ? `<input type="number" max="9" min="1" value="" id="cell_${rowIndex}_${colIndex}">` : num}</td>`).join(""))
         .map((row) => `<tr>${row}</tr>`)

@@ -19,6 +19,8 @@ function GetNumberofZeroes() {
     numberOfZeros = 20; 
   } else if (selectedOption.value === "super-easy"){
     numberOfZeros = 1; 
+  } else if (selectedOption.value === "Arto Inkala"){
+    numberOfZeros = "Arto Inkala"; 
   }
   return numberOfZeros;
 }
