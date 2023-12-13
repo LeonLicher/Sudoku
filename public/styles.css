@@ -5,6 +5,11 @@ margin-bottom: 10px;
 button {
     margin-top: 0px;
     margin-bottom: 5px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 302px;
+    background-color: #04AA6D;
+    color: white;
 }
 
 #difficultySelector {
@@ -14,6 +19,7 @@ button {
 table {
     border-collapse: collapse;
     margin-bottom: 5px;
+
 }
 
 td {

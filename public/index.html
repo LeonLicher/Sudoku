@@ -10,31 +10,65 @@
 
     <label for="difficultySelector">Select a Difficulty:</label>
     <select id="difficultySelector">
-        <option value="easy">easy 20 empty cells</option>
-        <option value="mid">mid 40 empty cells</option>
-        <option value="hard">hard 55 empty cells</option>
+        <option value="super-easy">super easy (1 empty cell)</option>
+        <option value="easy">easy (20 empty cells)</option>
+        <option value="mid">mid (40 empty cells)</option>
+        <option value="hard">hard (55 empty cells)</option>
+
     </select>
     
     <button id="generateButton">Generate new Sudoku</button>
 
     <table id="noSolutionBoard"></table>
+    
 
+    <button id="Auswerten">Auswerten</button>
     <br>
     <button id="toggleButton" onclick="solveTable('noSolutionBoard')">Generate Solution</button>
 
-    <table id="solutionTable"></table>
 
     <script type="module" src="./scripts.js"></script>
     <script defer type="module" src="./generateSudoku.js"></script>
     <script defer type="module" src="./solver.js"></script>
+    <script defer type="module" src="./isValid.js"></script>
 
     <script type="module">
         // Import necessary functions from modules
         import { GetNumberofZeroes } from "./scripts.js";
         import { solveSudoku } from "./solver.js";
         import { generateSudoku } from "./generateSudoku.js";
-
+        import { isValid } from "./isValid.js";
         let sudokuBoard;
+
+        function collectUserInputs() {
+        let userInputArray = sudokuBoard.map((row, rowIndex) => {
+            return row.map((num, colIndex) => {
+                let inputField = document.getElementById(`cell_${rowIndex}_${colIndex}`);
+                return inputField ? (inputField.value !== '' ? parseInt(inputField.value, 10) : num) : num;
+            });
+        });
+
+        console.log("User Input Array:", userInputArray);
+        const table = document.querySelector('table');
+        const element = document.querySelector('input');
+        if(isValid(userInputArray)){
+            table.style.backgroundColor = 'green';
+            element.style.backgroundColor = "green";
+        } else {
+            table.style.backgroundColor = "red";
+            element.style.backgroundColor = "red";
+        }
+        setTimeout(() => {
+            table.style.backgroundColor = "white"; // Set to original or your desired color
+                try {
+                    element.style.backgroundColor = "white";
+                } catch (TypeError) {
+                    console.log("caught not able to read input Error")
+                }
+            }, 600);
+        }
+        
+
 
         function updateTable(tableId) {
             let table = document.getElementById(tableId);
@@ -42,14 +76,12 @@
 
             sudokuBoard = generateSudoku(numberOfZeros);
             let rawString = sudokuBoard
-            .map((row) => row.map((num) => `<td>${num}</td>`).join(""))
-            .map((row) => `<tr>${row}</tr>`)
-            .join("");
+        .map((row, rowIndex) => row.map((num, colIndex) => `<td>${num === 0 ? `<input type="number" max="9" min="1" value="" id="cell_${rowIndex}_${colIndex}">` : num}</td>`).join(""))
+        .map((row) => `<tr>${row}</tr>`)
+        .join("");
 
-console.log(rawString);
-
-let str = rawString.replace(/<td>0<\/td>/g, '<td><input type="number" max="9" min"1" value=""></td>');
-table.innerHTML = str;
+            let str = rawString.replace(/<td>0<\/td>/g, '<td><input type="number" max="9" min"1" value=""></td>');
+            table.innerHTML = str;
 
             console.log("Number of cells to figure out: " + numberOfZeros + ".");
         }
@@ -73,6 +105,9 @@ table.innerHTML = str;
         };
         document.getElementById("toggleButton").onclick = function () {
         solveTable("noSolutionBoard");
+        }
+        document.getElementById("Auswerten").onclick = function () {
+            collectUserInputs();
         }
     </script>
 </body>

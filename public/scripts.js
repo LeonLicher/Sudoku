@@ -16,7 +16,9 @@ function GetNumberofZeroes() {
   } else if (selectedOption.value === "mid") {
     numberOfZeros = 40;
   } else if (selectedOption.value === "easy"){
-    numberOfZeros = 20;
+    numberOfZeros = 20; 
+  } else if (selectedOption.value === "super-easy"){
+    numberOfZeros = 1; 
   }
   return numberOfZeros;
 }
