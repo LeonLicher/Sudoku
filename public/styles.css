@@ -59,4 +59,8 @@ input {
     -o-appearance: none;
     /* appearance: none; */
     text-align: center;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    border:none;
 }
+
