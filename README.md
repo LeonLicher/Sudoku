@@ -8,7 +8,7 @@ Dieses Projekt ist eine webbasierte Sudoku-Anwendung, die es Benutzern ermöglic
 
 ## Funktionen
 
-- **Sudoku-Generierung**: Benutzer können neue Sudoku-Rätsel mit einstellbaren Schwierigkeitsgraden (super einfach, einfach, mittel, schwer) generieren.
+- **Sudoku-Generierung**: Benutzer können neue Sudoku-Rätsel mit einstellbaren Schwierigkeitsgraden (super einfach, einfach, mittel, schwer, "Arto Inkala") generieren.
 - **Sudoku-Lösung**: Die Anwendung bietet einen Solver, der die Lösung für generierte Rätsel findet.
 - **Validierung von Benutzereingaben**: Benutzer können ihre Vermutungen in das Rätsel eingeben, und die Anwendung überprüft die Richtigkeit der eingegebenen Werte.
 - **Dynamische Schwierigkeitsauswahl**: Benutzer können vor dem Generieren eines neuen Sudoku-Rätsels den Schwierigkeitsgrad auswählen.
