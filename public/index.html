@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Leon macht Sudokus</h1>
-
+    <h2>Sudoku App von Leon</h1>
+    <div>
     <label for="difficultySelector">Select a Difficulty:</label>
     <select id="difficultySelector">
         <option value="super-easy">super easy (1 empty cell)</option>
@@ -17,16 +17,21 @@
         <option value="Arto Inkala">Härtestes Sudoku der Welt "Arto Inkala"</option>
 
     </select>
-    <p>On average, for a Sudoku expert with significant experience and proficiency in advanced solving techniques, solving a puzzle like the world's hardest Sudoku might take anywhere from 2 to 6 hours. Keep in mind that this is a rough estimate, and the actual time can vary based on the solver's familiarity with the puzzle's specific patterns and the techniques required to progress through it.</p>
+    </div>
+    <p id="infoParagraph" style="display: none;">
+        Im Durchschnitt könnte es für einen Sudoku-Experten mit umfangreicher Erfahrung und Kenntnissen in fortgeschrittenen Lösungstechniken etwa 2 bis 6 Stunden dauern, ein Rätsel wie das weltweit schwierigste Sudoku "Arto Inkala" zu lösen. Beachte, dass dies eine grobe Schätzung ist, und die tatsächliche Zeit kann je nach der Vertrautheit des Rätsellösers mit den spezifischen Mustern des Rätsels und den erforderlichen Techniken variieren.
+    </p>
+    <div>
     <button id="generateButton">Generate new Sudoku</button>
-
+    </div>
     <table id="noSolutionBoard"></table>
     
-
+    <div>
     <button id="Auswerten">Evaluate</button>
-    <br>
+    </div>
+    <div>
     <button id="toggleButton" onclick="solveTable('noSolutionBoard')">Generate Solution</button>
-
+    </div>
 
     <script type="module" src="./scripts.js"></script>
     <script defer type="module" src="./generateSudoku.js"></script>
@@ -40,6 +45,8 @@
         import { generateSudoku } from "./generateSudoku.js";
         import { isValid } from "./isValid.js";
         let sudokuBoard;
+
+        updateTable("noSolutionBoard") //Initialize Board
 
         function collectUserInputs() {
     let userInputArray = sudokuBoard.map((row, rowIndex) => {
@@ -65,14 +72,13 @@ function updateValidation(userInputArray) {
     setTimeout(() => {
         resetColors();
     }, 600);
-
     function setColors(color) {
         console.log("setColor called");
         table.style.backgroundColor = color;
     }
 
     function resetColors() {
-        table.style.backgroundColor = 'white';
+        table.style.backgroundColor = 'white'; 
     }
 }
 
@@ -128,6 +134,20 @@ function updateValidation(userInputArray) {
         document.getElementById("Auswerten").onclick = function () {
             collectUserInputs();
         }
+        var difficultySelector = document.getElementById("difficultySelector");
+        var infoParagraph = document.getElementById("infoParagraph");
+
+        difficultySelector.onchange = function () {
+         // Check the selected value
+        if (difficultySelector.value === "Arto Inkala") {
+            // Show the paragraph
+            infoParagraph.style.display = "block";
+        } else {
+            // Hide the paragraph
+            infoParagraph.style.display = "none";
+        }
+    };
+
     </script>
 </body>
 </html>

@@ -1,15 +1,42 @@
-#difficultySelector {
-margin-top: 3px;
-margin-bottom: 10px;
+body, select {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
 }
-button {
+select {
+    width: auto;
+    max-width: 572px;
+}
+
+div{
+    text-align: center;
+    display: block;
+}
+p{
     margin-top: 0px;
     margin-bottom: 5px;
-    box-sizing: border-box;
+    white-space: wrap; /* Prevent line breaks */
+    text-overflow: ellipsis;
+    width: auto;
+    max-width: 572px;
+    
+    margin-left: auto;
+    margin-right: auto; /* Center horizontally */
+    border-collapse: collapse;
+
+
+
+}
+button {
+    border-collapse: collapse;
+    margin: 5px;
     width: 100%;
-    max-width: 302px;
+    max-width: 572px;
     background-color: #04AA6D;
     color: white;
+    margin-left: auto;
+    margin-right: auto; /* Center horizontally */
+
 }
 
 #difficultySelector {
@@ -19,14 +46,16 @@ button {
 table {
     border-collapse: collapse;
     margin-bottom: 5px;
-
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td {
     border: 1px solid black;
-    width: 30px; /* Adjust the width as needed */
-    height: 30px; /* Adjust the height as needed */
+    width: 60px; /* Adjust the width as needed */
+    height: 60px; /* Adjust the height as needed */
     text-align: center;
+    font-size: 250%;
 }
 tr:first-of-type td{
     border-top-width: 2px;
@@ -68,5 +97,6 @@ input {
     -webkit-box-sizing:border-box;
     -moz-box-sizing: border-box;
     border:none;
+    font-size: 100%;
 }
 
