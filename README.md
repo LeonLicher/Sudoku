@@ -25,7 +25,10 @@ Dieses Projekt ist eine webbasierte Sudoku-Anwendung, die es Benutzern ermöglic
 - `server.js`: Die serverseitige JavaScript-Datei, die Express.js verwendet, um statische Dateien zu servieren und API-Endpunkte zu behandeln.
 - `README.md`: Diese Datei, die einen Überblick über das Projekt bietet.
 
-## Erste Schritte
+## Erste Schritte zur Nutzung der Website
+1. **Seite aufrufen**: Gehe in deinem Browser zu 'https://sudokuleon.onrender.com/'.
+
+## Erste Schritte zur lokalen Nutzung
 
 1. **Klone das Repository**: `git clone https://github.com/LeonLicher/Sudoku.git`
 2. **Navigiere zum Projektverzeichnis**: `cd Sudoku`
