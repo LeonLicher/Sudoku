@@ -32,18 +32,18 @@
     <div>
     <button id="toggleButton" onclick="solveTable('noSolutionBoard')">Generate Solution</button>
     </div>
-
-    <script type="module" src="./scripts.js"></script>
-    <script defer type="module" src="./generateSudoku.js"></script>
-    <script defer type="module" src="./solver.js"></script>
-    <script defer type="module" src="./isValid.js"></script>
+    
+    <script type="module" src="../dist/public/scripts.js"></script>
+    <script defer type="module" src="../dist/public/generateSudoku.js"></script>
+    <script defer type="module" src="../dist/public/solver.js"></script>
+    <script defer type="module" src="../dist/public/isValid.js"></script>
 
     <script type="module">
         // Import necessary functions from modules
-        import { GetNumberofZeroes } from "./scripts.js";
-        import { solveSudoku } from "./solver.js";
-        import { generateSudoku } from "./generateSudoku.js";
-        import { isValid } from "./isValid.js";
+        import { GetNumberofZeroes } from "../dist/public/scripts.js";
+        import { solveSudoku } from "../dist/public/solver.js";
+        import { generateSudoku } from "../dist/public/generateSudoku.js";
+        import { isValid } from "../dist/public/isValid.js";
         let sudokuBoard;
 
         updateTable("noSolutionBoard") //Initialize Board
