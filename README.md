@@ -2,8 +2,8 @@
 
 Dieses Projekt ist eine webbasierte Sudoku-Anwendung, die es Benutzern ermöglicht, neue Sudoku-Rätsel mit verschiedenen Schwierigkeitsgraden zu generieren, diese zu lösen und ihre Lösungen zu überprüfen. Die Anwendung ist mit JavaScript und dem Express.js-Framework für den Serverteil erstellt worden, und für das Frontend wurden HTML und CSS verwendet.
 ## TODO:
--change font of input to td
--improve effect for correct Sudoku
+- change font of input to td
+- improve effect for correct Sudoku
 - maybe if super motivated show the cells that are the reason for not correct result
 
 ## Funktionen
