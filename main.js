@@ -13,6 +13,7 @@ let app = express();
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8')
     res.statusCode(200)
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

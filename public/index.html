@@ -8,21 +8,18 @@
 <body>
     <h2>Sudoku App von Leon</h1>
     <div>
-    <label for="difficultySelector">Select a Difficulty:</label>
+    <label for="difficultySelector">Schwierigkeit auswählen:</label>
     <select id="difficultySelector">
-        <option value="super-easy">super easy (1 empty cell)</option>
-        <option value="easy">easy (20 empty cells)</option>
-        <option value="mid">mid (40 empty cells)</option>
-        <option value="hard">hard (55 empty cells)</option>
-        <option value="Arto Inkala">Härtestes Sudoku der Welt "Arto Inkala"</option>
+        <option value="super-easy">Super easy (1 leere Zelle)</option>
+        <option value="easy">Einfach (20 leere Zellen)</option>
+        <option value="mid">Mittel (40 leere Zellen)</option>
+        <option value="hard">Hart (55 leere Zellen)</option>
+        <option value="Arto Inkala">&#x26A0; "Arto Inkala" &#x26A0;</option>
 
     </select>
     </div>
-    <p id="infoParagraph" style="display: none;">
-        Im Durchschnitt könnte es für einen Sudoku-Experten mit umfangreicher Erfahrung und Kenntnissen in fortgeschrittenen Lösungstechniken etwa 2 bis 6 Stunden dauern, ein Rätsel wie das weltweit schwierigste Sudoku "Arto Inkala" zu lösen. Beachte, dass dies eine grobe Schätzung ist, und die tatsächliche Zeit kann je nach der Vertrautheit des Rätsellösers mit den spezifischen Mustern des Rätsels und den erforderlichen Techniken variieren.
-    </p>
     <div>
-    <button id="generateButton">Neues Sudoku erstellen</button>
+    <button id="generateButton">Neues Suddoku erstellen</button>
     </div>
     <table id="noSolutionBoard"></table>
     
@@ -105,7 +102,7 @@ function updateValidation(userInputArray) {
         .map((row) => `<tr>${row}</tr>`)
         .join("");
 
-            let str = rawString.replace(/<td>0<\/td>/g, '<td><input type="number" max="9" min"1" value=""></td>');
+            let str = rawString.replace(/<td>0<\/td>/g, '<td><input type="number" td>');
             table.innerHTML = str;
 
             console.log("Number of cells to figure out: " + numberOfZeros + ".");
@@ -135,16 +132,13 @@ function updateValidation(userInputArray) {
             collectUserInputs();
         }
         var difficultySelector = document.getElementById("difficultySelector");
-        var infoParagraph = document.getElementById("infoParagraph");
 
         difficultySelector.onchange = function () {
+            updateTable("noSolutionBoard")
          // Check the selected value
         if (difficultySelector.value === "Arto Inkala") {
-            // Show the paragraph
-            infoParagraph.style.display = "block";
-        } else {
-            // Hide the paragraph
-            infoParagraph.style.display = "none";
+           
+        alert("Im Durchschnitt könnte es für einen Sudoku-Experten mit umfangreicher Erfahrung und Kenntnissen in fortgeschrittenen Lösungstechniken etwa 2 bis 6 Stunden dauern, ein Rätsel wie das weltweit schwierigste Sudoku \"Arto Inkala\" zu lösen. Mit dem Lösungsprogramm (Lösungsalgorithmus) dieser Website geht das in unter 1 Sekunde. ")
         }
     };
 

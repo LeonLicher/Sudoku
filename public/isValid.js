@@ -3,7 +3,7 @@ function isValid(board) {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             const value = board[i][j];
-            if(value==0 || value=="")return false;
+            if(!(value>0 && value <= 9 ))return false;
 
             if (value !== 0) {
                 if (!validRow(board, i, j, value) || !validColumn(board, i, j, value) || !validBox(board, i, j, value)) {
