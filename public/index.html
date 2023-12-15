@@ -55,8 +55,7 @@
     
     
 function updateValidation(userInputArray) {
-    const table = document.getElementById('noSolutionBoard')
-    const inputFields = document.querySelectorAll('.inputNumbersField');
+    const table = document.getElementById('noSolutionBoard');
     if (isValid(userInputArray)) {
         setColors('green');
     } else {
@@ -67,24 +66,11 @@ function updateValidation(userInputArray) {
         resetColors();
     }, 750);
     function setColors(color) {
-        console.log("setColor called");
         table.style.backgroundColor = color;
-        inputFields.style.backgroundColor = color;
-        console.log("inputFieldColor changed");
-
-        // Iterate through inputFields and set the background color
-        inputFields.forEach(function (input) {
-            input.style.backgroundColor = color;
-        });
     }
 
     function resetColors() {
         table.style.backgroundColor = 'white';
-
-        // Iterate through inputFields and reset the background color
-        inputFields.forEach(function (input) {
-            input.style.backgroundColor = 'white';
-        });
     }
 }
 
@@ -146,7 +132,7 @@ function updateValidation(userInputArray) {
             updateTable("noSolutionBoard")
          // Check the selected value
         if (difficultySelector.value === "Arto Inkala") {
-           
+        
         alert("Im Durchschnitt könnte es für einen Sudoku-Experten mit umfangreicher Erfahrung und Kenntnissen in fortgeschrittenen Lösungstechniken etwa 2 bis 6 Stunden dauern, ein Rätsel wie das weltweit schwierigste Sudoku \"Arto Inkala\" zu lösen. Mit dem Lösungsprogramm (Lösungsalgorithmus) dieser Website geht das in unter 1 Sekunde. ")
         }
     };
