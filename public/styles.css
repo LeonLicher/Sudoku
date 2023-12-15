@@ -15,6 +15,7 @@ select {
 div{
     text-align: center;
     display: block;
+    padding: auto;
 }
 p{
     margin-top: 0px;
@@ -50,10 +51,14 @@ button {
 }
 
 table {
-    border-collapse: collapse;
-    margin-bottom: 5px;
+    padding: 10px;
     margin-left: 2%;
     margin-right: 2%; /* Center horizontally */
+    border-collapse: collapse;
+    margin-bottom: 5px;
+    width: 96%;
+    max-width: 572px;
+
 }
 
 td {
