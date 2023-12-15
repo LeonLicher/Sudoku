@@ -55,8 +55,8 @@
     
     
 function updateValidation(userInputArray) {
-    const table = document.getElementById('noSolutionBoard');
-
+    const table = document.getElementById('noSolutionBoard')
+    const inputFields = document.querySelectorAll('.inputNumbersField');
     if (isValid(userInputArray)) {
         setColors('green');
     } else {
@@ -65,14 +65,26 @@ function updateValidation(userInputArray) {
 
     setTimeout(() => {
         resetColors();
-    }, 600);
+    }, 750);
     function setColors(color) {
         console.log("setColor called");
         table.style.backgroundColor = color;
+        inputFields.style.backgroundColor = color;
+        console.log("inputFieldColor changed");
+
+        // Iterate through inputFields and set the background color
+        inputFields.forEach(function (input) {
+            input.style.backgroundColor = color;
+        });
     }
 
     function resetColors() {
-        table.style.backgroundColor = 'white'; 
+        table.style.backgroundColor = 'white';
+
+        // Iterate through inputFields and reset the background color
+        inputFields.forEach(function (input) {
+            input.style.backgroundColor = 'white';
+        });
     }
 }
 
@@ -99,7 +111,7 @@ function updateValidation(userInputArray) {
         .map((row) => `<tr>${row}</tr>`)
         .join("");
 
-            let str = rawString.replace(/<td>0<\/td>/g, '<td><input type="number" td>');
+            let str = rawString.replace(/<td>0<\/td>/g, '<td><input type="number" class="inputNumbersField" td>');
             table.innerHTML = str;
 
             console.log("Number of cells to figure out: " + numberOfZeros + ".");
