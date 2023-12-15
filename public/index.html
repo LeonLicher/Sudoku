@@ -15,128 +15,18 @@
         <option value="mid">Mittel (40 leere Zellen)</option>
         <option value="hard">Hart (55 leere Zellen)</option>
         <option value="Arto Inkala">&#x26A0; "Arto Inkala" &#x26A0;</option>
-
     </select>
 
     <button id="generateButton">Neues Suddoku erstellen</button>
 
-    <table id="noSolutionBoard"></table>
+    <table id="Board"></table>
 
     <button id="Auswerten">Auswerten</button>
 
-    <button id="toggleButton" onclick="solveTable('noSolutionBoard')">Lösung anzeigen</button>
+    <button id="toggleButton" onclick="solve('Board')">Lösung errechnen und anzeigen</button>
     </div>
 
-    <script type="module" src="./scripts.js"></script>
-    <script defer type="module" src="./generateSudoku.js"></script>
-    <script defer type="module" src="./solver.js"></script>
-    <script defer type="module" src="./isValid.js"></script>
+    <script defer type="module" src="./scripts.js"></script>
 
-    <script type="module">
-        // Import necessary functions from modules
-        import { GetNumberofZeroes } from "./scripts.js";
-        import { solveSudoku } from "./solver.js";
-        import { generateSudoku } from "./generateSudoku.js";
-        import { isValid } from "./isValid.js";
-        let sudokuBoard;
-
-        updateTable("noSolutionBoard") //Initialize Board
-
-        function collectUserInputs() {
-    let userInputArray = sudokuBoard.map((row, rowIndex) => {
-        return row.map((num, colIndex) => {
-            let inputField = document.getElementById(`cell_${rowIndex}_${colIndex}`);
-            return inputField ? (inputField.value !== '' ? parseInt(inputField.value, 10) : num) : num;
-        });
-    });
-
-    updateValidation(userInputArray)
-}
-    
-    
-function updateValidation(userInputArray) {
-    const table = document.getElementById('noSolutionBoard');
-    if (isValid(userInputArray)) {
-        setColors('green');
-    } else {
-        setColors('red');
-    }
-
-    setTimeout(() => {
-        resetColors();
-    }, 750);
-    function setColors(color) {
-        table.style.backgroundColor = color;
-    }
-
-    function resetColors() {
-        table.style.backgroundColor = 'white';
-    }
-}
-
-        function updateTable(tableId) {
-            let table = document.getElementById(tableId);
-            let numberOfZeros = GetNumberofZeroes();
-            if(numberOfZeros!== "Arto Inkala"){
-            sudokuBoard = generateSudoku(numberOfZeros);
-            } else { 
-            sudokuBoard =  [
-                [8, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 6, 0, 0, 0, 0, 0],
-                [0, 7, 0, 0, 9, 0, 2, 0, 0],
-                [0, 5, 0, 0, 0, 7, 0, 0, 0],
-                [0, 0, 0, 0, 4, 5, 7, 0, 0],
-                [0, 0, 0, 1, 0, 0, 0, 3, 0],
-                [0, 0, 1, 0, 0, 0, 0, 6, 8],
-                [0, 0, 8, 5, 0, 0, 0, 1, 0],
-                [0, 9, 0, 0, 0, 0, 4, 0, 0]
-                ];
-            }
-            let rawString = sudokuBoard
-        .map((row, rowIndex) => row.map((num, colIndex) => `<td>${num === 0 ? `<input type="number" max="9" min="1" value="" id="cell_${rowIndex}_${colIndex}">` : num}</td>`).join(""))
-        .map((row) => `<tr>${row}</tr>`)
-        .join("");
-
-            let str = rawString.replace(/<td>0<\/td>/g, '<td><input type="number" class="inputNumbersField" td>');
-            table.innerHTML = str;
-
-            console.log("Number of cells to figure out: " + numberOfZeros + ".");
-        }
-
-        function solveTable(tableId) {
-            let table = document.getElementById(tableId);
-
-            sudokuBoard = solveSudoku(sudokuBoard);
-            let rawString = sudokuBoard
-                .map((row) => row.map((num) => `<td>${num}</td>`).join(""))
-                .map((row) => `<tr>${row}</tr>`)
-                .join("");
-            
-            table.innerHTML = rawString;
-           
-        }
-
-        // Assign the function to the button click event after the function is defined
-        document.getElementById("generateButton").onclick = function () {
-            updateTable("noSolutionBoard");
-        };
-        document.getElementById("toggleButton").onclick = function () {
-        solveTable("noSolutionBoard");
-        }
-        document.getElementById("Auswerten").onclick = function () {
-            collectUserInputs();
-        }
-        var difficultySelector = document.getElementById("difficultySelector");
-
-        difficultySelector.onchange = function () {
-            updateTable("noSolutionBoard")
-         // Check the selected value
-        if (difficultySelector.value === "Arto Inkala") {
-        
-        alert("Im Durchschnitt könnte es für einen Sudoku-Experten mit umfangreicher Erfahrung und Kenntnissen in fortgeschrittenen Lösungstechniken etwa 2 bis 6 Stunden dauern, ein Rätsel wie das weltweit schwierigste Sudoku \"Arto Inkala\" zu lösen. Mit dem Lösungsprogramm (Lösungsalgorithmus) dieser Website geht das in unter 1 Sekunde. ")
-        }
-    };
-
-    </script>
 </body>
 </html>

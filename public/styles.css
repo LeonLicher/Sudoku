@@ -9,7 +9,7 @@ body, select, div, p, button {
     margin: 0 auto;
 }
 
-/* Set maximum width for select, p, button */
+/* maximum width leave some space on sides*/
 select, p, button, table {
     max-width: 96vh;
 }
@@ -36,18 +36,21 @@ button {
     display: block;
 }
 
-/* Set styling for input */
+
 input {
+    /* fill the td of table */
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
-    -moz-appearance: none;
+    /* box-sizing: border-box; */
+    /* Remove arrows for input type digit */
+    -moz-appearance: none;  
     -ms-appearance: none;
     -o-appearance: none;
-    text-align: center;
+    
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     border: none;
+    text-align: center;
     font-size: 100%;
     padding-left: 8px;
 }
@@ -63,7 +66,6 @@ table {
     padding: 10px;
     margin: 0 auto; /* Center horizontally */
     border-collapse: collapse;
-    margin-bottom: 5px;
     width: 96%;
     max-width: 572px;
 }
