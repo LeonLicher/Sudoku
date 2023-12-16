@@ -9,26 +9,28 @@ genNewSudoku("Board"); //Initialize Board at Start
 function GetNumberofZeroes() {
   console.log("GetZeroes function called");
   // Get the <select> element by its ID
-  var selectElement = document.getElementById("difficultySelector");
-
-  // Get the selected option
-  var selectedOption = selectElement.options[selectElement.selectedIndex];
+  const selectElement = document.getElementById("difficultySelector")as HTMLSelectElement;
 
   // Get the value of the selected option
   let numberOfZeros;
-
-  if (selectedOption.value === "hard") {
+  if(selectElement){
+      // Get the selected option
+  const selectedOption = selectElement.value;
+  if (selectedOption === "hard") {
     numberOfZeros = 55;
-  } else if (selectedOption.value === "mid") {
+  } else if (selectedOption === "mid") {
     numberOfZeros = 40;
-  } else if (selectedOption.value == "easy") {
+  } else if (selectedOption == "easy") {
     numberOfZeros = 20;
-  } else if (selectedOption.value === "super-easy") {
+  } else if (selectedOption === "super-easy") {
     numberOfZeros = 1;
-  } else if (selectedOption.value === "Arto Inkala") {
+  } else if (selectedOption === "Arto Inkala") {
     numberOfZeros = "Arto Inkala";
+  } else {
+    console.log("select contains non handeled value")
   }
   return numberOfZeros; //Return Number of Zeoes
+  }
 }
 export { GetNumberofZeroes };
 
@@ -36,7 +38,7 @@ export { GetNumberofZeroes };
 function collectUserInputs() {
   let userInputArray = sudokuBoard.map((row, rowIndex) => {
     return row.map((num, colIndex) => {
-      let inputField = document.getElementById(`cell_${rowIndex}_${colIndex}`);
+      let inputField = document.getElementById(`cell_${rowIndex}_${colIndex}`) as HTMLInputElement;
       return inputField
         ? inputField.value !== ""
           ? parseInt(inputField.value, 10)
@@ -50,7 +52,7 @@ function collectUserInputs() {
 export {collectUserInputs}
 
 function validate(userInputArray) {
-  const table = document.getElementById("Board");
+  const table = document.getElementById("Board") as HTMLInputElement;
   if (isValid(userInputArray)) {
     setColors("green");
   } else {
@@ -71,7 +73,7 @@ function validate(userInputArray) {
 export {validate}
 
 function genNewSudoku(tableId) {
-  let table = document.getElementById(tableId);
+  let table = document.getElementById(tableId) as HTMLTableElement;
   let numberOfZeros = GetNumberofZeroes();
   if (numberOfZeros !== "Arto Inkala") {
     sudokuBoard = generateSudoku(numberOfZeros);
@@ -115,7 +117,7 @@ function genNewSudoku(tableId) {
 export {genNewSudoku}
 
 function solve(tableId) {
-  let table = document.getElementById(tableId);
+  let table = document.getElementById(tableId) as HTMLTableElement;
 
   sudokuBoard = solveSudoku(sudokuBoard);
   let rawString = sudokuBoard
@@ -137,7 +139,7 @@ document.getElementById("toggleButton").onclick = function () {
 document.getElementById("Auswerten").onclick = function () {
   collectUserInputs();
 };
-var difficultySelector = document.getElementById("difficultySelector");
+var difficultySelector = document.getElementById("difficultySelector") as HTMLInputElement;
 
 difficultySelector.onchange = function () {
   genNewSudoku("Board");
