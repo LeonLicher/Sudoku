@@ -37,7 +37,10 @@ button {
     display: block;
 }
 
-
+td input {
+    width: 100%; /* or width: 100vw; */
+}
+  
 input {
     /* fill the td of table */
     width: 100%;
@@ -47,7 +50,6 @@ input {
     -moz-appearance: none;  
     -ms-appearance: none;
     -o-appearance: none;
-    
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     border: none;
