@@ -52,7 +52,7 @@ input {
     border: none;
     text-align: center;
     font-size: 100%;
-    padding-left: 8px;
+    /* padding-left: 8px; */
 }
 
 /* Remove spin buttons for number input on webkit browsers */
