@@ -1,5 +1,5 @@
 // A function that returns the result for the entire sudoku board.
-function isValid(board) {
+function isValid(board: any[][]) {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             const value = board[i][j];
@@ -16,7 +16,7 @@ function isValid(board) {
 }
 
 // The row function.
-function validRow(board, row, col, value) {
+function validRow(board: any[][], row: number, col: number, value: any) {
     // j represents on column
     for (let j = 0; j < 9; j++) {
         // check if the current column matches the passed-in column
@@ -31,7 +31,7 @@ function validRow(board, row, col, value) {
 }
 
 // The column function.
-function validColumn(board, row, col, value) {
+function validColumn(board: number[][] , row: number, col: number, value: any) {
     // i represents on row
     for (let i = 0; i < 9; i++) {
         // check if the current row matches the passed-in row
@@ -46,7 +46,7 @@ function validColumn(board, row, col, value) {
 }
 
 // The sub-boxes function.
-function validBox(board, row, col, value) {
+function validBox(board: any[][], row: number, col: number, value: any) {
     const startRow = row - (row % 3),
         startCol = col - (col % 3);
 

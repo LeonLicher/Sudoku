@@ -3,7 +3,7 @@ import { solveSudoku } from "./solver.js";
 import { generateSudoku } from "./generateSudoku.js";
 import { isValid } from "./isValid.js";
 
-let sudokuBoard;
+let sudokuBoard: any;
 genNewSudoku("Board"); //Initialize Board at Start
 
 function GetNumberofZeroes() {
@@ -36,7 +36,7 @@ export { GetNumberofZeroes };
 
 
 function collectUserInputs() {
-  let userInputArray = sudokuBoard.map((row, rowIndex) => {
+  let userInputArray = sudokuBoard.map((row: any[], rowIndex: any) => {
     return row.map((num, colIndex) => {
       let inputField = document.getElementById(`cell_${rowIndex}_${colIndex}`) as HTMLInputElement;
       return inputField
@@ -51,7 +51,7 @@ function collectUserInputs() {
 }
 export {collectUserInputs}
 
-function validate(userInputArray) {
+function validate(userInputArray: any) {
   const table = document.getElementById("Board") as HTMLInputElement;
   if (isValid(userInputArray)) {
     setColors("green");
@@ -62,7 +62,7 @@ function validate(userInputArray) {
   setTimeout(() => {
     resetColors();
   }, 750);
-  function setColors(color) {
+  function setColors(color: string) {
     table.style.backgroundColor = color;
   }
 
@@ -72,11 +72,11 @@ function validate(userInputArray) {
 }
 export {validate}
 
-function genNewSudoku(tableId) {
+function genNewSudoku(tableId: string) {
   let table = document.getElementById(tableId) as HTMLTableElement;
   let numberOfZeros = GetNumberofZeroes();
   if (numberOfZeros !== "Arto Inkala") {
-    sudokuBoard = generateSudoku(numberOfZeros);
+    sudokuBoard = generateSudoku(Number(numberOfZeros));
   } else {
     sudokuBoard = [
       [8, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -91,10 +91,10 @@ function genNewSudoku(tableId) {
     ];
   }
   let rawString = sudokuBoard
-    .map((row, rowIndex) =>
+    .map((row: any[], rowIndex: any) =>
       row
         .map(
-          (num, colIndex) =>
+          (num: number, colIndex: any) =>
             `<td>${
               num === 0
                 ? `<input type="number" max="9" min="1" value="" id="cell_${rowIndex}_${colIndex}">`
@@ -103,7 +103,7 @@ function genNewSudoku(tableId) {
         )
         .join("")
     )
-    .map((row) => `<tr>${row}</tr>`)
+    .map((row: any) => `<tr>${row}</tr>`)
     .join("");
 
   let str = rawString.replace(
@@ -116,13 +116,13 @@ function genNewSudoku(tableId) {
 }
 export {genNewSudoku}
 
-function solve(tableId) {
+function solve(tableId: string) {
   let table = document.getElementById(tableId) as HTMLTableElement;
 
   sudokuBoard = solveSudoku(sudokuBoard);
   let rawString = sudokuBoard
-    .map((row) => row.map((num) => `<td>${num}</td>`).join(""))
-    .map((row) => `<tr>${row}</tr>`)
+    .map((row: any[]) => row.map((num: any) => `<td>${num}</td>`).join(""))
+    .map((row: any) => `<tr>${row}</tr>`)
     .join("");
 
   table.innerHTML = rawString;
@@ -130,15 +130,28 @@ function solve(tableId) {
 export {solve}
 
 // Assign the function to the button click event after the function is defined
-document.getElementById("generateButton").onclick = function () {
-  genNewSudoku("Board");
-};
-document.getElementById("toggleButton").onclick = function () {
-  solve("Board");
-};
-document.getElementById("Auswerten").onclick = function () {
-  collectUserInputs();
-};
+const generateButtonElement = document.getElementById("generateButton");
+const toggleButtonElement = document.getElementById("toggleButton");
+const auswertenButtonElement = document.getElementById("Auswerten");
+
+if (generateButtonElement) {
+  generateButtonElement.onclick = function () {
+    genNewSudoku("Board");
+  };
+}
+
+if (toggleButtonElement) {
+  toggleButtonElement.onclick = function () {
+    solve("Board");
+  };
+}
+
+if (auswertenButtonElement) {
+  auswertenButtonElement.onclick = function () {
+    collectUserInputs();
+  };
+}
+
 var difficultySelector = document.getElementById("difficultySelector") as HTMLInputElement;
 
 difficultySelector.onchange = function () {

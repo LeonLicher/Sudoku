@@ -1,7 +1,7 @@
-function solveSudoku(board) {
+function solveSudoku(board: number[][]) {
     const size = 9;
   
-    function isValid(num, row, col) {
+    function isValid(num: number, row: number, col: number) {
       // Check if 'num' is not present in the current row, column, and 3x3 grid
       for (let i = 0; i < size; i++) {
         if (

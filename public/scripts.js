@@ -72,7 +72,7 @@ function genNewSudoku(tableId) {
     let table = document.getElementById(tableId);
     let numberOfZeros = GetNumberofZeroes();
     if (numberOfZeros !== "Arto Inkala") {
-        sudokuBoard = generateSudoku(numberOfZeros);
+        sudokuBoard = generateSudoku(Number(numberOfZeros));
     }
     else {
         sudokuBoard = [
@@ -111,15 +111,24 @@ function solve(tableId) {
 }
 export { solve };
 // Assign the function to the button click event after the function is defined
-document.getElementById("generateButton").onclick = function () {
-    genNewSudoku("Board");
-};
-document.getElementById("toggleButton").onclick = function () {
-    solve("Board");
-};
-document.getElementById("Auswerten").onclick = function () {
-    collectUserInputs();
-};
+const generateButtonElement = document.getElementById("generateButton");
+const toggleButtonElement = document.getElementById("toggleButton");
+const auswertenButtonElement = document.getElementById("Auswerten");
+if (generateButtonElement) {
+    generateButtonElement.onclick = function () {
+        genNewSudoku("Board");
+    };
+}
+if (toggleButtonElement) {
+    toggleButtonElement.onclick = function () {
+        solve("Board");
+    };
+}
+if (auswertenButtonElement) {
+    auswertenButtonElement.onclick = function () {
+        collectUserInputs();
+    };
+}
 var difficultySelector = document.getElementById("difficultySelector");
 difficultySelector.onchange = function () {
     genNewSudoku("Board");

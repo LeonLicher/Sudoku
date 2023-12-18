@@ -1,7 +1,7 @@
-function generateSudoku(numberOfZ) {
+function generateSudoku(numberOfZ: number) {
     const grid = Array.from({ length: 9 }, () => Array(9).fill(0));
   
-    function isValid(num, row, col) {
+    function isValid(num: number, row: number, col: number) {
       for (let i = 0; i < 9; i++) {
         if (
           grid[row][i] === num ||
@@ -39,7 +39,7 @@ function generateSudoku(numberOfZ) {
         return true;
       }
       
-      function shuffle(array) {
+      function shuffle(array: number[]) {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [array[i], array[j]] = [array[j], array[i]];
