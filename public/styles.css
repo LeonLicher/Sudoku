@@ -51,7 +51,7 @@ input {
     -moz-box-sizing: content-box;
     border: none;
     text-align: center;
-    font-size: 100%;
+    font-size: 50%;
     /* padding-left: 8px; */
 }
 
@@ -75,7 +75,7 @@ td {
     width: 60px; /* Adjust the width as needed */
     height: 60px; /* Adjust the height as needed */
     text-align: center;
-    font-size: 250%;
+    font-size: 125%;
 }
 tr:first-of-type td{
     border-top-width: 2px;
