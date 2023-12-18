@@ -44,12 +44,12 @@ input {
     height: 100%;
     /* box-sizing: border-box; */
     /* Remove arrows for input type digit */
-    -moz-appearance: none;  
+    /* -moz-appearance: none;  
     -ms-appearance: none;
     -o-appearance: none;
     
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box; */
     border: none;
     text-align: center;
     font-size: 100%;
