@@ -37,11 +37,6 @@ button {
     display: block;
 }
 
-td input {
-    width: 100%;
-    max-width: 100%;
-    padding: 10px;
-  
 input {
     /* fill the td of table */
     width: 100%;
@@ -52,12 +47,11 @@ input {
     -ms-appearance: none;
     -o-appearance: none;
     
-    -webkit-box-sizing: border-box;
+    /* -webkit-box-sizing: border-box; */
     -moz-box-sizing: border-box;
     border: none;
-    text-align: center;
     font-size: 100%;
-    padding-left: 8px;
+    padding: 10px;
 }
 
 /* Remove spin buttons for number input on webkit browsers */
