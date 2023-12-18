@@ -47,8 +47,8 @@ input {
     -ms-appearance: none;
     -o-appearance: none;
     
-    /* -webkit-box-sizing: border-box; */
-    -moz-box-sizing: border-box;
+    -webkit-box-sizing:content-box;
+    -moz-box-sizing: content-box;
     border: none;
     font-size: 100%;
     padding: 10px;
