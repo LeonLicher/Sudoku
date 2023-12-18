@@ -47,11 +47,12 @@ input {
     -ms-appearance: none;
     -o-appearance: none;
     
-    -webkit-box-sizing:content-box;
-    -moz-box-sizing: content-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     border: none;
+    text-align: center;
     font-size: 100%;
-    padding: 10px;
+    padding-left: 8px;
 }
 
 /* Remove spin buttons for number input on webkit browsers */
