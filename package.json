@@ -5,7 +5,7 @@
   "main": "scripts.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./main.js",
+    "start": "npm run build && nodemon ./main.js",
     "build": "tsc"
   },
   "keywords": [],
