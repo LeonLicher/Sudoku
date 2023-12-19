@@ -51,26 +51,39 @@ function collectUserInputs() {
 export { collectUserInputs };
 function validate(userInputArray) {
     const table = document.getElementById("Board");
+    const feedbackDiv = document.getElementById("feedback");
     if (isValid(userInputArray)) {
         setColors("green");
+        showFeedback("Korrekte Lösung!", "green");
     }
     else {
         setColors("red");
+        showFeedback("Falsche Lösung. Versuchs nochmal.", "red");
     }
     setTimeout(() => {
         resetColors();
-    }, 750);
+        hideFeedback();
+    }, 2000);
     function setColors(color) {
         table.style.backgroundColor = color;
     }
     function resetColors() {
         table.style.backgroundColor = "white";
     }
+    function showFeedback(message, color) {
+        feedbackDiv.innerText = message;
+        feedbackDiv.style.color = color;
+    }
+    function hideFeedback() {
+        feedbackDiv.innerText = "";
+    }
 }
 export { validate };
 function genNewSudoku(tableId) {
     let table = document.getElementById(tableId);
     let numberOfZeros = GetNumberofZeroes();
+    // Clear the table content before generating a new Sudoku
+    table.innerHTML = "";
     if (numberOfZeros !== "Arto Inkala") {
         sudokuBoard = generateSudoku(Number(numberOfZeros));
     }
@@ -87,16 +100,24 @@ function genNewSudoku(tableId) {
             [0, 9, 0, 0, 0, 0, 4, 0, 0],
         ];
     }
-    let rawString = sudokuBoard
-        .map((row, rowIndex) => row
-        .map((num, colIndex) => `<td>${num === 0
-        ? `<input type="number" max="9" min="1" value="" id="cell_${rowIndex}_${colIndex}">`
-        : num}</td>`)
-        .join(""))
-        .map((row) => `<tr>${row}</tr>`)
-        .join("");
-    let str = rawString.replace(/<td>0<\/td>/g, '<td><input type="number" class="inputNumbersField" td>');
-    table.innerHTML = str;
+    for (let i = 0; i < sudokuBoard.length; i++) {
+        let row = table.insertRow();
+        for (let j = 0; j < sudokuBoard[i].length; j++) {
+            let cell = row.insertCell();
+            let num = sudokuBoard[i][j];
+            // Check if the number is 0 to create an input field
+            if (num === 0) {
+                let inputField = document.createElement("input");
+                inputField.type = "number";
+                inputField.value = "";
+                inputField.id = `cell_${i}_${j}`;
+                cell.appendChild(inputField);
+            }
+            else {
+                cell.innerText = num;
+            }
+        }
+    }
     console.log("Number of cells to figure out: " + numberOfZeros + ".");
 }
 export { genNewSudoku };
