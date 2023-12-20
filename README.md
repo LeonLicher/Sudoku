@@ -2,9 +2,8 @@
 
 Dieses Projekt ist eine webbasierte Sudoku-Anwendung, die es Benutzern ermöglicht, neue Sudoku-Rätsel mit verschiedenen Schwierigkeitsgraden zu generieren, diese zu lösen und ihre Lösungen zu überprüfen. Die Anwendung ist mit JavaScript und dem Express.js-Framework für den Serverteil erstellt worden, und für das Frontend wurden HTML und CSS verwendet.
 ## TODO:
-- fix input numbers visibility on iphone
-- improve effect for correct Sudoku
-- maybe if super motivated show the cells that are the reason for not correct result
+- Effekt für richtige Lösung verbessern
+- Zellen anzeigen die Schuld für Fehler sind
 
 ## Funktionen
 
@@ -26,7 +25,7 @@ Dieses Projekt ist eine webbasierte Sudoku-Anwendung, die es Benutzern ermöglic
 - `README.md`: Diese Datei, die einen Überblick über das Projekt bietet.
 
 ## Erste Schritte zur Nutzung der Website
-1. **Seite aufrufen**: Gehe in deinem Browser zu 'https://sudokuleon.onrender.com/'.
+1. **Seite aufrufen**: Gehe in deinem Browser zu 'https://leonlicher.github.io/Sudoku/public/'.
 
 ## Erste Schritte zur lokalen Nutzung
 
